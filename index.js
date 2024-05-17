@@ -3,16 +3,20 @@ import express from 'express'
 import cors from 'cors'
 import { config } from 'dotenv'
 
-import mongoose from './mongo.js'
 import CodeEditor from './models/CodeEditor.js'
 
-mongoose
+
 config()
 
 const app = express()
+
+
 app.use(express.json())
 
 app.use(cors())
+
+import mongoose from './mongo.js'
+mongoose
 
 app.get('/api/code/:link', (req,res) => {
     const link = req.params.link; 

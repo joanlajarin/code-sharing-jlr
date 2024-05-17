@@ -6,7 +6,9 @@ export function saveCodeDb() {
 
     const postToDb = (postData) => {
         setLoading(true)
-        const url = 'http://localhost:8000/api/code'
+      //  const url = 'http://localhost:8000/api/code'
+        const url = 'https://code-sharing-jlr.onrender.com/api/code'
+
         fetch(url, {
             method: 'POST',
             headers: {

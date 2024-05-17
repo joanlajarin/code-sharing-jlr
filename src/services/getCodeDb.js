@@ -5,7 +5,8 @@ export function getCodeDb(linkId) {
     const [codeDb, setDataDb] = useState(null)
     const [loading, setLoading] = useState(true)
 
-    const url = `http://localhost:8000/api/code/${linkId}`
+  //  const url = `http://localhost:8000/api/code/${linkId}`
+    const url = `https://code-sharing-jlr.onrender.com/api/code/${linkId}`
 
     useEffect(() => {
         console.log("Searching for data")
