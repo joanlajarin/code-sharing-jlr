@@ -3,7 +3,7 @@ import downArrowImg from '../images/downArrow.svg'
 
 export default function ThemeButton({changeThemeEditor}){
 
-    const [theme, setTheme] = useState("VS Dark")
+    const [theme, setTheme] = useState("Light")
 
     const changeTheme = () => {
         if(theme === 'VS Dark') {

@@ -72,7 +72,7 @@ export default function CodeEditor({linkId}) {
     <div className={`${theme === 'vs-dark'? 'bg-[#121826]' : 'bg-[#FFFFFE]'} w-[95%] max-w-[880px] h-[720px] rounded-lg flex flex-col px-[16px] pb-[16px] pt-[24px] `}>    
         <div className='flex-grow'>
             <Editor 
-                height="90%"
+                height="80%"
                 defaultLanguage={language}
                 value={value}
                 onChange={handleEditorChange}
