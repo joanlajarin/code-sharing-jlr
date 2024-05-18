@@ -7,7 +7,7 @@ import { getCodeDb } from '../services/getCodeDb'
 import { useEffect, useState } from 'react'
 
 export default function CodeEditor({linkId}) {
-    
+    console.log(linkId)
     const { codeDb, loading } = linkId !== undefined ? getCodeDb(linkId) : { codeDb: null, loading: false };
     const [value, setValue] = useState("Loading..")
     const [theme, setTheme] = useState("vs-dark")
@@ -17,6 +17,8 @@ export default function CodeEditor({linkId}) {
 
     useEffect(()=>{
         if(codeDb === "" || (Array.isArray(codeDb) && codeDb.length <= 0) ||codeDb === null ) {
+            console.log("if")
+
             setValue( `<html>
             <head>
               <title>HTML Sample</title>
@@ -36,7 +38,9 @@ export default function CodeEditor({linkId}) {
             </body>
       </html>`)
         } else {
-            console.log(codeDb)
+            console.log("else")
+
+            console.log(codeDb[0].code)
             setValue(codeDb[0].code)
         }
     },[codeDb])
