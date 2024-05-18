@@ -14,39 +14,32 @@ export default function CodeEditor({linkId}) {
     const [language, setLanguage] = useState("html")
     const [activateBtn, setActivateBtn] = useState(true)
     const [linkCode, setLinkCode] = useState()
-    const defalutValue = `<html>
-    <head>
-      <title>HTML Sample</title>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <style type="text/css">
-        h1 {
-          color: #CCA3A3;
-        }
-      </style>
-      <script type="text/javascript">
-        alert("I am a sample... visit devChallenges.io for more projects");
-      </script>
-    </head>
-    <body>
-        <h1>Heading No.1</h1>
-        <input disabled type="button" value="Click me" />
-    </body>
-</html>`
-
 
     useEffect(()=>{
-        if(loading === false ){
-            if(codeDb === "" ||codeDb === null ) {
-                setValue( defalutValue)
-            } else {
-                if( (Array.isArray(codeDb) && codeDb.length <= 0) ) {
-                    setValue( defalutValue)
-                } else {
-                    setValue(codeDb[0].code)
+        if(codeDb === "" || (Array.isArray(codeDb) && codeDb.length <= 0) ||codeDb === null ) {
+            setValue( `<html>
+            <head>
+              <title>HTML Sample</title>
+              <meta http-equiv="X-UA-Compatible" content="IE=edge">
+              <style type="text/css">
+                h1 {
+                  color: #CCA3A3;
                 }
-            }
+              </style>
+              <script type="text/javascript">
+                alert("I am a sample... visit devChallenges.io for more projects");
+              </script>
+            </head>
+            <body>
+                <h1>Heading No.1</h1>
+                <input disabled type="button" value="Click me" />
+            </body>
+      </html>`)
+        } else {
+            console.log(codeDb)
+            setValue(codeDb[0].code)
         }
-    },[loading])
+    },[codeDb])
 
     const changeLanguageEditor = (language) => {
         if(language === "HTML") {
