@@ -7,7 +7,7 @@ import { Toaster, toast } from 'sonner'
 
 export function CodeSharingApp () {
     let { linkId } = useParams()
-
+    console.log(linkId)
 
     return <div
         className=" flex flex-col items-center bg-cover bg-center w-full h-full pt-[40px]"
