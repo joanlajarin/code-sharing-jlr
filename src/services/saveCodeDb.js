@@ -2,7 +2,7 @@ import { useState } from "react"
 
 export function saveCodeDb() {
 
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     const postToDb = (postData) => {
         setLoading(true)
