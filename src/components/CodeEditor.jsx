@@ -9,37 +9,32 @@ import { useEffect, useState } from 'react'
 export default function CodeEditor({linkId}) {
     console.log(linkId)
     const { codeDb, loading } = linkId !== undefined ? getCodeDb(linkId) : { codeDb: null, loading: false };
-    const [value, setValue] = useState("Loading..")
+    const [value, setValue] = useState(`<html>
+    <head>
+      <title>HTML Sample</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <style type="text/css">
+        h1 {
+          color: #CCA3A3;
+        }
+      </style>
+      <script type="text/javascript">
+        alert("I am a sample... visit devChallenges.io for more projects");
+      </script>
+    </head>
+    <body>
+        <h1>Heading No.1</h1>
+        <input disabled type="button" value="Click me" />
+    </body>
+</html>`)
     const [theme, setTheme] = useState("vs-dark")
     const [language, setLanguage] = useState("html")
     const [activateBtn, setActivateBtn] = useState(true)
     const [linkCode, setLinkCode] = useState()
 
     useEffect(()=>{
-        if(codeDb === "" || (Array.isArray(codeDb) && codeDb.length <= 0) ||codeDb === null ) {
+        if(codeDb !== "" && (Array.isArray(codeDb) && codeDb.length > 0) && codeDb !== null ) {
             console.log("if")
-
-            setValue( `<html>
-            <head>
-              <title>HTML Sample</title>
-              <meta http-equiv="X-UA-Compatible" content="IE=edge">
-              <style type="text/css">
-                h1 {
-                  color: #CCA3A3;
-                }
-              </style>
-              <script type="text/javascript">
-                alert("I am a sample... visit devChallenges.io for more projects");
-              </script>
-            </head>
-            <body>
-                <h1>Heading No.1</h1>
-                <input disabled type="button" value="Click me" />
-            </body>
-      </html>`)
-        } else {
-            console.log("else")
-
             console.log(codeDb[0].code)
             setValue(codeDb[0].code)
         }
