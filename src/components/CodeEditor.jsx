@@ -83,7 +83,7 @@ export default function CodeEditor({linkId}) {
             <Editor 
                 height="90%"
                 defaultLanguage={language}
-                defaultValue={value}
+                value={value}
                 onChange={handleEditorChange}
                 theme={theme}
             />
