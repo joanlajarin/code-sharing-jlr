@@ -19,7 +19,6 @@ export default function ShareButton({activateBtn , deactivateBtn, passLink, code
           }
             postToDb(newCodeLink)
             passLink(linkId)
-            console.log(newCodeLink)
  //           navigateTo(`/${linkId}`); 
             deactivateBtn()
             navigator.clipboard.writeText(`https://code-sharing-jlr.netlify.app/${linkId}`);

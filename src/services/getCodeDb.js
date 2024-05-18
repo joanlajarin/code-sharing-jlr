@@ -9,7 +9,6 @@ export function getCodeDb(linkId) {
     const url = `https://code-sharing-jlr.onrender.com/api/code/${linkId}`
 
     useEffect(() => {
-        console.log("Searching for data")
         setLoading(true)
         fetch(url)
             .then((response) => response.json())

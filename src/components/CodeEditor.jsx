@@ -7,7 +7,6 @@ import { getCodeDb } from '../services/getCodeDb'
 import { useEffect, useState } from 'react'
 
 export default function CodeEditor({linkId}) {
-    console.log(linkId)
     const { codeDb, loading } = linkId !== undefined ? getCodeDb(linkId) : { codeDb: null, loading: false };
     const [value, setValue] = useState(`<html>
     <head>
@@ -34,8 +33,6 @@ export default function CodeEditor({linkId}) {
 
     useEffect(()=>{
         if(codeDb !== "" && (Array.isArray(codeDb) && codeDb.length > 0) && codeDb !== null ) {
-            console.log("if")
-            console.log(codeDb[0].code)
             setValue(codeDb[0].code)
         }
     },[codeDb])
@@ -63,7 +60,6 @@ export default function CodeEditor({linkId}) {
     }
 
     const handleEditorChange = (value, event) => {
-        console.log("Here is the current model value:", value)
         setValue(value)
         setActivateBtn(true)
       }
